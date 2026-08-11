@@ -9,7 +9,7 @@ import {
 
 const STORE_NAME = "community-canvas";
 const KEY = "flowers";
-export const MAX_PER_VISITOR = 100; // temp — was 5
+export const MAX_PER_VISITOR = 5;
 
 declare global {
   // eslint-disable-next-line no-var
@@ -23,8 +23,18 @@ function memoryStore(): Flower[] {
   return global.__pressedMemoryFlowerStore;
 }
 
+/**
+ * On Netlify (Next runtime), Blobs credentials are injected automatically.
+ * Locally, either use `netlify dev`, or set NETLIFY_SITE_ID + NETLIFY_AUTH_TOKEN
+ * to talk to the site store. Otherwise we fall back to in-memory.
+ */
 function tryGetBlobStore() {
+  const siteID = process.env.NETLIFY_SITE_ID || process.env.SITE_ID;
+  const token = process.env.NETLIFY_AUTH_TOKEN || process.env.NETLIFY_BLOBS_TOKEN;
   try {
+    if (siteID && token) {
+      return getStore(STORE_NAME, { siteID, token });
+    }
     return getStore(STORE_NAME);
   } catch {
     return null;
