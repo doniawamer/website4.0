@@ -1,0 +1,140 @@
+.intro {
+  padding: 56px 24px 0;
+  max-width: 720px;
+}
+
+@media (min-width: 900px) {
+  .intro {
+    padding: 100px 64px 0;
+    max-width: 1010px;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-script), cursive;
+  font-size: 20px;
+  color: var(--acc-lg);
+  line-height: 1.4;
+}
+
+.subtitle {
+  font-family: var(--font-serif), serif;
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 20px 0 0;
+  max-width: 640px;
+  text-wrap: pretty;
+}
+
+@media (min-width: 900px) {
+  .subtitle {
+    font-size: 21px;
+    margin-top: 22px;
+  }
+}
+
+.brandsSection {
+  padding: 56px 24px 80px;
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .brandsSection {
+    padding: 76px 64px 110px;
+  }
+}
+
+.brandsLabel {
+  font-family: var(--font-script), cursive;
+  font-size: 20px;
+  color: var(--acc-lg);
+  line-height: 1.4;
+}
+
+.panel {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+  min-height: 200px;
+}
+
+@media (min-width: 900px) {
+  .panel {
+    grid-template-columns: 360px 1fr;
+    gap: 40px;
+  }
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.panelAvatar {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 50%;
+  border: 1.5px solid var(--ring-color, var(--acc-lg));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panelAvatarImg {
+  width: 72%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.panelName {
+  font-family: var(--font-serif), serif;
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.panelHandle {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: var(--acc-sm);
+  transition: color 1.5s var(--ease-slow);
+}
+
+.panelHandle:hover {
+  color: var(--acc-lg);
+}
+
+.panelBody {
+  font-family: var(--font-serif), serif;
+  font-size: 15.5px;
+  line-height: 1.6;
+  margin: 16px 0 0;
+  color: color-mix(in srgb, var(--color-text) 74%, var(--color-bg));
+  text-wrap: pretty;
+}
+
+.panelTags {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.panelMedia {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .panelMedia {
+    gap: 36px;
+    justify-content: flex-start;
+  }
+}

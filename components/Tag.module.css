@@ -1,0 +1,11 @@
+.tag {
+  font-family: var(--font-mono), monospace;
+  font-size: 10.5px;
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  color: var(--acc-sm);
+  border: 1.5px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  transition: color var(--dur-slow) var(--ease-slow);
+}

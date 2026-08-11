@@ -1,0 +1,60 @@
+:root {
+  /* Static first-paint fallback (first light). SiteChrome applies the live
+     time-of-day / system-dark palette on the client after mount. */
+  --color-bg: #f6f4f7;
+  --color-text: #2b2730;
+  --color-accent: #8c7fa8;
+  --acc-lg: #8d81a6;
+  --acc-sm: #776995;
+
+  /* The six daylight accents — used for tag gradients + stamp color swatches. */
+  --tag-1: #8c7fa8; /* first light */
+  --tag-2: #c85a3d; /* midday */
+  --tag-3: #d2703f; /* late afternoon */
+  --tag-4: #c9903d; /* golden hour */
+  --tag-5: #a24e82; /* dusk */
+  --tag-6: #4b4a8f; /* blue hour */
+
+  --btn-ink: #fff9ec;
+  --btn-shadow: 0 1px 4px rgba(35, 28, 15, 0.65);
+  --blend: multiply;
+  --paper-filter: none;
+  --paper-tint: 0.9;
+
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --container-max: 1120px;
+
+  --ease-slow: cubic-bezier(0.19, 1, 0.22, 1);
+  --dur-slow: 1.5s;
+}
+
+/* System dark: match dark_mode palette before React runs, so dark OS users
+   don't flash the cream fallback. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #211f2e;
+    --color-text: #f4f3f8;
+    --color-accent: #8c86c9;
+    --acc-lg: #a29cd4;
+    --acc-sm: #b8b3e0;
+    --btn-ink: #211f2e;
+    --btn-shadow: none;
+    --blend: normal;
+    --paper-filter: invert(0.93);
+    --paper-tint: 0;
+  }
+}

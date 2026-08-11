@@ -1,0 +1,42 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px 0 0;
+}
+
+@media (min-width: 900px) {
+  .wrap {
+    margin-top: 24px;
+  }
+}
+
+.favicon {
+  width: 24px;
+  height: auto;
+  object-fit: contain;
+}
+
+.bud {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid color-mix(in srgb, var(--color-text) 55%, transparent);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.label {
+  font-family: var(--font-mono), monospace;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.labelOpen {
+  color: var(--acc-sm);
+}
+
+.labelClosed {
+  color: color-mix(in srgb, var(--color-text) 62%, var(--color-bg));
+}

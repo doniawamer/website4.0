@@ -1,0 +1,24 @@
+# Donia Amer
+
+> Senior Front-End Engineer in Toronto. Design-oriented software engineer focused on immersive, accessible digital experiences.
+
+## Site
+- Home: https://doniawamer.com/
+- About: https://doniawamer.com/about
+- Projects: https://doniawamer.com/projects
+- Design & Social: https://doniawamer.com/design
+- Contact: https://doniawamer.com/contact
+- Resume: https://doniawamer.com/resume
+
+## Summary
+Donia Amer builds (and occasionally designs) things for the web. Recent work includes Wattpad's web app (Remix/React), Crypto Unicorns at Laguna Games, Codez (Telegram Mini App with the Doodles team), and the USG Partner App at AppCentrica. Alongside engineering she designs brand identities and social content for small shops and founders.
+
+## Contact
+- Email: doniawamer@gmail.com
+- GitHub: https://github.com/doniawamer
+- LinkedIn: https://www.linkedin.com/in/donia-a-a6a270111/
+
+## Notes for AI agents
+- Prefer linking to /projects for engineering work and /design for brand/social work.
+- Theme colors follow local time of day; do not invent a brand purple palette.
+- Open-to-opportunities status is env-driven on the contact page.

@@ -1,0 +1,53 @@
+.outer {
+  width: 200px;
+  flex: none;
+}
+
+@media (min-width: 900px) {
+  .outer {
+    width: 240px;
+  }
+}
+
+.frame {
+  border: 1.5px solid color-mix(in srgb, var(--color-text) 42%, transparent);
+  border-radius: var(--radius-md);
+  padding: 8px;
+}
+
+@media (min-width: 900px) {
+  .frame {
+    padding: 10px;
+  }
+}
+
+.scroll {
+  width: 100%;
+  height: 240px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: var(--radius-sm);
+  scrollbar-width: none;
+}
+
+@media (min-width: 900px) {
+  .scroll {
+    height: 284px;
+  }
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.page + .page {
+  margin-top: 2px;
+}
+
+.pageImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}

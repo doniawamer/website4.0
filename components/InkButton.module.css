@@ -1,0 +1,28 @@
+.button {
+  display: inline-flex;
+  flex: none;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 38px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.7s ease, filter 0.7s ease;
+  border-radius: var(--radius-pill);
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: scale(0.985);
+  filter: brightness(0.97);
+}
+
+.label {
+  font-family: var(--font-mono), monospace;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--btn-ink);
+  text-shadow: var(--btn-shadow);
+}

@@ -1,0 +1,275 @@
+.wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.bgFlower {
+  display: none;
+  position: absolute;
+  right: -70px;
+  top: 90px;
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  transform: rotate(8deg);
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (min-width: 900px) {
+  .bgFlower {
+    display: block;
+    right: 70px;
+    top: 150px;
+    width: 220px;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 56px 24px 72px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .content {
+    padding: 100px 64px;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-script), cursive;
+  font-size: 20px;
+  color: var(--acc-lg);
+  line-height: 1.4;
+}
+
+.headline {
+  font-family: var(--font-serif), serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 16px 0 0;
+  color: var(--acc-lg);
+  text-wrap: pretty;
+}
+
+@media (min-width: 900px) {
+  .headline {
+    font-size: 42px;
+    line-height: 1.18;
+  }
+}
+
+.body {
+  font-family: var(--font-serif), serif;
+  font-size: 16px;
+  line-height: 1.75;
+  margin-top: 32px;
+  color: color-mix(in srgb, var(--color-text) 88%, var(--color-bg));
+}
+
+@media (min-width: 900px) {
+  .body {
+    font-size: 18px;
+    margin-top: 40px;
+  }
+}
+
+.body p {
+  margin: 0 0 22px;
+  text-wrap: pretty;
+}
+
+.photoWrap {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 24px;
+  position: relative;
+  isolation: isolate;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 900px) {
+  .photoWrap {
+    float: right;
+    width: 250px;
+    margin: 6px 0 22px 36px;
+  }
+}
+
+.photoBloomStamp1,
+.photoBloomStamp2,
+.photoBloomFavicon {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1.6s ease, transform 2.4s var(--ease-slow);
+  pointer-events: none;
+  z-index: -1;
+  height: auto;
+  object-fit: contain;
+}
+
+.photoBloomStamp1 {
+  top: -28px;
+  left: -18px;
+  width: 88px;
+  transform: rotate(-16deg) scale(0.55);
+}
+
+.photoBloomStamp2 {
+  bottom: -20px;
+  right: -14px;
+  width: 76px;
+  transform: rotate(18deg) scale(0.55);
+  transition-delay: 0.18s;
+}
+
+.photoBloomFavicon {
+  top: 32%;
+  right: -18px;
+  width: 58px;
+  transform: rotate(8deg) scale(0.55);
+  transition-delay: 0.36s;
+}
+
+@media (min-width: 900px) {
+  .photoBloomStamp1 {
+    top: -52px;
+    left: -58px;
+    width: 124px;
+  }
+
+  .photoBloomStamp2 {
+    bottom: -48px;
+    right: -54px;
+    width: 108px;
+  }
+
+  .photoBloomFavicon {
+    top: 32%;
+    right: -66px;
+    width: 86px;
+  }
+}
+
+.photoWrap:hover .photoBloomStamp1,
+.photoWrap:hover .photoBloomStamp2,
+.photoWrap:hover .photoBloomFavicon,
+.photoBloomed .photoBloomStamp1,
+.photoBloomed .photoBloomStamp2,
+.photoBloomed .photoBloomFavicon {
+  opacity: 0.75;
+  transform: rotate(-16deg) scale(1);
+}
+
+.photoWrap:hover .photoBloomStamp2,
+.photoBloomed .photoBloomStamp2 {
+  transform: rotate(18deg) scale(1);
+}
+
+.photoWrap:hover .photoBloomFavicon,
+.photoBloomed .photoBloomFavicon {
+  transform: rotate(8deg) scale(1);
+}
+
+.photoFrame {
+  position: relative;
+  z-index: 1;
+  border: 1.5px solid color-mix(in srgb, var(--color-text) 42%, transparent);
+  padding: 8px;
+  background: var(--color-bg);
+  transform: rotate(1.5deg);
+  width: 200px;
+}
+
+@media (min-width: 900px) {
+  .photoFrame {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.photoInner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--color-accent) 32%, var(--color-bg));
+}
+
+.photoImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.timeline {
+  margin-top: 56px;
+}
+
+@media (min-width: 900px) {
+  .timeline {
+    margin-top: 84px;
+  }
+}
+
+.timelineLabel {
+  font-family: var(--font-script), cursive;
+  font-size: 20px;
+  color: var(--acc-lg);
+  line-height: 1.4;
+}
+
+.timelineGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 24px;
+}
+
+@media (min-width: 640px) {
+  .timelineGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 56px;
+    margin-top: 36px;
+  }
+}
+
+.role {
+  font-family: var(--font-serif), serif;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+@media (min-width: 900px) {
+  .role {
+    font-size: 21px;
+  }
+}
+
+.roleTitle {
+  font-family: var(--font-serif), serif;
+  font-style: italic;
+  font-size: 14.5px;
+  color: color-mix(in srgb, var(--color-text) 66%, var(--color-bg));
+  margin-top: 3px;
+}
+
+@media (min-width: 900px) {
+  .roleTitle {
+    font-size: 15.5px;
+  }
+}
+
+.roleDates {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 52%, var(--color-bg));
+  margin-top: 6px;
+}

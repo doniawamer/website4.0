@@ -1,0 +1,419 @@
+.content {
+  padding: 40px 24px 140px;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 900px) {
+  .content {
+    padding: 96px 64px 160px;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-script), cursive;
+  font-size: 18px;
+  color: var(--acc-lg);
+  line-height: 1.4;
+}
+
+@media (min-width: 900px) {
+  .eyebrow {
+    font-size: 20px;
+  }
+}
+
+.headline {
+  font-family: var(--font-serif), serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 10px 0 0;
+  color: var(--acc-lg);
+}
+
+@media (min-width: 900px) {
+  .headline {
+    font-size: 46px;
+    margin-top: 16px;
+  }
+}
+
+.subtitle {
+  font-family: var(--font-serif), serif;
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 14px auto 0;
+  max-width: 500px;
+  color: color-mix(in srgb, var(--color-text) 78%, var(--color-bg));
+  text-wrap: pretty;
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .subtitle {
+    display: block;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+}
+
+.postcard {
+  margin: 28px auto 0;
+  max-width: 880px;
+  transform: rotate(-1.2deg);
+  background: color-mix(in srgb, var(--color-bg) 74%, #fffdf6);
+  border: 1.5px solid color-mix(in srgb, var(--color-text) 42%, transparent);
+  padding: 6px;
+  text-align: left;
+}
+
+@media (min-width: 900px) {
+  .postcard {
+    margin-top: 48px;
+    padding: 8px;
+  }
+}
+
+.postcardInner {
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--color-text) 22%, transparent);
+  padding: 20px 18px;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .postcardInner {
+    padding: 44px 46px 40px;
+    min-height: 300px;
+    grid-template-columns: 1.05fr 1px 0.95fr;
+    gap: 0 44px;
+  }
+}
+
+.postcardTexture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.postcardLeft {
+  position: relative;
+  display: none;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .postcardLeft {
+    display: flex;
+  }
+}
+
+.postcardNote {
+  font-family: var(--font-script), cursive;
+  font-size: 17px;
+  color: var(--acc-lg);
+  line-height: 1.7;
+  transform: rotate(-0.5deg);
+  margin-top: 4px;
+}
+
+@media (min-width: 640px) {
+  .postcardNote {
+    font-size: 20px;
+    line-height: 2;
+    margin-top: 14px;
+  }
+}
+
+.postcardBody {
+  font-family: var(--font-serif), serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 12px 0 0;
+  max-width: 330px;
+  color: color-mix(in srgb, var(--color-text) 78%, var(--color-bg));
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  .postcardBody {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: 16px;
+  }
+}
+
+.postcardSignoff {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+@media (min-width: 640px) {
+  .postcardSignoff {
+    gap: 12px;
+    margin-top: 26px;
+  }
+}
+
+.postcardSignoffText {
+  font-family: var(--font-script), cursive;
+  font-size: 19px;
+  color: var(--acc-lg);
+  transform: rotate(-1deg);
+}
+
+@media (min-width: 640px) {
+  .postcardSignoffText {
+    font-size: 22px;
+  }
+}
+
+.postcardStamp {
+  width: 28px;
+  height: auto;
+  object-fit: contain;
+  transform: rotate(9deg);
+}
+
+@media (min-width: 640px) {
+  .postcardStamp {
+    width: 34px;
+  }
+}
+
+.postcardDivider {
+  display: none;
+  background: color-mix(in srgb, var(--color-text) 18%, transparent);
+  width: 1px;
+}
+
+@media (min-width: 640px) {
+  .postcardDivider {
+    display: block;
+  }
+}
+
+.postcardRight {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.stampBox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stampBoxInner {
+  width: 68px;
+  border: 1.5px dashed color-mix(in srgb, var(--color-text) 40%, transparent);
+  padding: 5px 5px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-bg));
+}
+
+@media (min-width: 640px) {
+  .stampBoxInner {
+    width: 80px;
+    padding: 7px 7px 5px;
+    gap: 3px;
+  }
+}
+
+.stampBoxLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: var(--acc-sm);
+}
+
+@media (min-width: 640px) {
+  .stampBoxLabel {
+    font-size: 8.5px;
+  }
+}
+
+.addressBlock {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 12px;
+}
+
+@media (min-width: 640px) {
+  .addressBlock {
+    gap: 18px;
+    padding-top: 24px;
+  }
+}
+
+.addressRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
+  padding: 0 2px 7px;
+}
+
+@media (min-width: 640px) {
+  .addressRow {
+    padding-bottom: 9px;
+  }
+}
+
+.addressLabel {
+  font-family: var(--font-mono), monospace;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--acc-sm);
+}
+
+.addressName {
+  font-family: var(--font-script), cursive;
+  font-size: 17px;
+  color: var(--acc-lg);
+}
+
+@media (min-width: 640px) {
+  .addressName {
+    font-size: 19px;
+  }
+}
+
+.addressEmail {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--acc-sm);
+  transition: color 1.5s var(--ease-slow);
+}
+
+@media (min-width: 640px) {
+  .addressEmail {
+    font-size: 13px;
+  }
+}
+
+.addressEmail:hover {
+  color: var(--acc-lg);
+}
+
+.addressCity {
+  font-family: var(--font-serif), serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--acc-lg);
+}
+
+@media (min-width: 640px) {
+  .addressCity {
+    font-size: 15px;
+  }
+}
+
+.ctaRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 28px auto 0;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 900px) {
+  .ctaRow {
+    margin-top: 44px;
+  }
+}
+
+.ctaDesktop {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 900px) {
+  .ctaDesktop {
+    display: flex;
+  }
+}
+
+.ctaMobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .ctaMobile {
+    flex-direction: row;
+    gap: 14px;
+  }
+}
+
+@media (min-width: 900px) {
+  .ctaMobile {
+    display: none;
+  }
+}
+
+.ctaSecondary {
+  font-family: var(--font-mono), monospace;
+  font-size: 11.5px;
+  color: var(--acc-sm);
+  transition: color 1.5s var(--ease-slow);
+}
+
+.ctaSecondary:hover {
+  color: var(--acc-lg);
+}
+
+.ctaResume {
+  padding: 14px 28px;
+}
+
+.ctaLeave {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono), monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: var(--acc-sm);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ctaLeaveIcon {
+  width: 16px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: var(--blend, multiply);
+}

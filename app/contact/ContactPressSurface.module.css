@@ -1,0 +1,185 @@
+.surface {
+  position: relative;
+  min-height: calc(100vh - 140px);
+  /* Clip sideways bleed from floor flowers without fighting the page width. */
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+@media (max-width: 899px) {
+  .surface {
+    min-height: 0;
+    /* Fall animation + edge flowers; clip both axes so mobile can't scroll sideways. */
+    overflow: hidden;
+  }
+}
+
+/* Hide the OS cursor only while actively using the flower cursor. */
+@media (hover: hover) and (pointer: fine) {
+  .surface[data-cursor="flower"] {
+    cursor: none;
+  }
+
+  .surface[data-cursor="system"],
+  .surface[data-cursor="system"] * {
+    cursor: auto;
+  }
+
+  .surface[data-cursor="system"] a,
+  .surface[data-cursor="system"] button,
+  .surface[data-cursor="system"] [role="button"] {
+    cursor: pointer;
+  }
+
+  .surface [data-deadzone],
+  .surface [data-deadzone] * {
+    cursor: auto;
+  }
+
+  .surface [data-deadzone] a,
+  .surface [data-deadzone] button,
+  .surface [data-deadzone] [role="button"] {
+    cursor: pointer;
+  }
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  will-change: transform;
+  margin-left: 2px;
+  margin-top: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor {
+    display: flex;
+  }
+}
+
+:global(body.stamp-modal-open) .cursor {
+  opacity: 0 !important;
+  visibility: hidden;
+}
+
+.cursorIcon {
+  width: 30px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: var(--blend, multiply);
+  flex: none;
+}
+
+.cursorLabel {
+  font-family: var(--font-script), cursive;
+  font-size: 14px;
+  color: var(--acc-lg);
+  white-space: nowrap;
+  text-shadow: 0 0 10px var(--color-bg), 0 0 4px var(--color-bg);
+}
+
+.floor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* Above page copy so side/bottom stamps stay visible, not trapped under it. */
+  z-index: 3;
+}
+
+@media (max-width: 899px) {
+  .floor {
+    top: auto;
+    height: 0;
+    z-index: 1;
+  }
+}
+
+.flower {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  /* Floor is inert; flowers opt back in so hover can reveal meta. */
+  pointer-events: auto;
+  --show: 0;
+  transform: rotate(var(--fl-rotate, 0deg));
+  cursor: default;
+}
+
+.flowerStamp {
+  transform: translate(-50%, -50%) rotate(var(--fl-rotate, 0deg));
+}
+
+.flower:hover {
+  --show: 1;
+  z-index: 2;
+}
+
+.flowerFall {
+  animation: fall 1.7s cubic-bezier(0.3, 0.05, 0.45, 1) both;
+}
+
+.flowerStampIn {
+  animation: stampIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-120%) rotate(calc(var(--fl-rotate, 0deg) - 28deg));
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  72% {
+    transform: translateY(10px) rotate(calc(var(--fl-rotate, 0deg) + 8deg));
+  }
+  100% {
+    transform: translateY(0) rotate(var(--fl-rotate, 0deg));
+    opacity: 1;
+  }
+}
+
+@keyframes stampIn {
+  0% {
+    transform: translate(-50%, -50%) rotate(calc(var(--fl-rotate, 0deg) - 12deg)) scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--fl-rotate, 0deg)) scale(1);
+    opacity: 1;
+  }
+}
+
+.flowerImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: var(--blend, multiply);
+  opacity: calc(1 - var(--show, 0) * 0.22);
+  transition: opacity 1.6s ease;
+}
+
+.flowerLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--color-text) 62%, var(--color-bg));
+  opacity: var(--show, 0);
+  transition: opacity 1.2s ease;
+  white-space: nowrap;
+  max-width: min(140px, 40vw);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 0 8px var(--color-bg), 0 0 3px var(--color-bg);
+  pointer-events: none;
+}

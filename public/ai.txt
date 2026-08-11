@@ -1,0 +1,8 @@
+# AI crawler guidance for doniawamer.com
+# See also: /llms.txt and /sitemap.xml
+
+User-Agent: *
+Allow: /
+
+llms-txt: /llms.txt
+Sitemap: /sitemap.xml

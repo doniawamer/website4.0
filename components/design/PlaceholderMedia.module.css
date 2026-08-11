@@ -1,0 +1,23 @@
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12%;
+  text-align: center;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--color-accent) 16%, var(--color-bg)),
+    color-mix(in srgb, var(--color-accent) 6%, var(--color-bg))
+  );
+}
+
+.label {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 55%, var(--color-bg));
+  line-height: 1.5;
+}

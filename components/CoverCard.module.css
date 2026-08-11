@@ -1,0 +1,179 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* Match the parent device viewport radius so cover/media clip cleanly. */
+  border-radius: inherit;
+  overflow: hidden;
+  --peek: 0;
+}
+
+.wrap:hover {
+  --peek: 1;
+}
+
+.image,
+.media,
+.placeholder,
+.overlay {
+  border-radius: inherit;
+}
+
+.image,
+.media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #100d08;
+  transition: opacity 0.45s var(--ease-slow);
+}
+
+.bars {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  gap: 4px;
+  z-index: 6;
+  opacity: 0.75;
+}
+
+.bar {
+  flex: 1;
+  height: 2.5px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--color-text) 18%, transparent);
+  transition: background 0.4s ease;
+}
+
+.barCurrent {
+  background: var(--color-accent);
+}
+
+.barPassed {
+  background: color-mix(in srgb, var(--color-accent) 45%, transparent);
+}
+
+.hitZone {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 5;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hitZone:focus {
+  outline: none;
+}
+
+.hitZone:focus-visible {
+  outline: 2px solid var(--acc-lg);
+  outline-offset: -4px;
+}
+
+.hitZonePrev {
+  left: 0;
+  width: 28%;
+}
+
+.hitZoneNext {
+  right: 0;
+  width: 40%;
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-bg));
+}
+
+.overlay {
+  cursor: pointer;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: calc(1 * (1 - var(--peek, 0) * 0.26));
+  transition: opacity 0.5s ease;
+  background: color-mix(in srgb, var(--color-accent) 7%, var(--color-bg));
+  border: 1px solid color-mix(in srgb, var(--color-accent) 55%, transparent);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8% 9%;
+  text-align: left;
+  user-select: none;
+}
+
+.overlayHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wrap:hover .overlayHidden {
+  opacity: 0;
+}
+
+.overlayTitle {
+  font-family: var(--font-serif), serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.15;
+  text-wrap: pretty;
+}
+
+@media (min-width: 900px) {
+  .overlayTitle {
+    font-size: 30px;
+  }
+}
+
+.overlayLabel {
+  font-family: var(--font-script), cursive;
+  font-size: 14px;
+  color: var(--acc-lg);
+  line-height: 1.5;
+  transform: rotate(-1deg);
+}
+
+@media (min-width: 900px) {
+  .overlayLabel {
+    font-size: 16px;
+  }
+}
+
+.peekHint {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  font-family: var(--font-script), cursive;
+  font-size: 10px;
+  color: var(--acc-lg);
+  text-shadow: 0 0 10px var(--color-bg), 0 0 4px var(--color-bg);
+  white-space: nowrap;
+}
+
+.wrap:hover .peekHint {
+  opacity: 1;
+}
+
+/* Touch / coarse pointers: always show a hint so tap-to-peek is discoverable */
+@media (hover: none) {
+  .peekHint {
+    opacity: 0.9;
+  }
+}
