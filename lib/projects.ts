@@ -2,7 +2,6 @@ import type { ProjectCardData } from "@/components/ProjectCard";
 
 export const WATTPAD_PROJECT: ProjectCardData = {
   device: "laptop",
-  imageSrc: "/projects/wattpad.webp",
   videoSrc: "/videos/demo_wattpad.mp4",
   imageAlt: "The Wattpad web app",
   coverTitle: "Ninety million readers.",
@@ -20,7 +19,6 @@ export const WATTPAD_PROJECT: ProjectCardData = {
 
 export const CODEZ_PROJECT: ProjectCardData = {
   device: "phone",
-  imageSrc: "/projects/codez.webp",
   videoSrc: "/videos/demo_codez.mp4",
   imageAlt: "Codez, a game inside Telegram",
   coverTitle: "Crack the daily code.",
@@ -36,7 +34,6 @@ export const CODEZ_PROJECT: ProjectCardData = {
 
 export const LAGUNA_PROJECT: ProjectCardData = {
   device: "laptop",
-  imageSrc: "/projects/laguna.webp",
   videoSrc: "/videos/demo_laguna.mp4",
   imageAlt: "Crypto Unicorns board game",
   coverTitle: "Roll, complete, redeem.",
