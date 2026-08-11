@@ -13,7 +13,14 @@ export default function StatusIndicator() {
   if (isOpen) {
     return (
       <div className={styles.wrap}>
-        <Image src={assets.favicon} alt="" width={26} height={26} className={styles.favicon} />
+        <Image
+          src={assets.favicon}
+          alt=""
+          width={26}
+          height={26}
+          className={styles.favicon}
+          data-theme-asset=""
+        />
         <span className={`${styles.label} ${styles.labelOpen}`}>
           In bloom, open to Senior Front-End Engineer roles
         </span>

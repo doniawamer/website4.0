@@ -30,7 +30,14 @@ export default function ContactPostcard() {
           <div style={{ flex: 1 }} />
           <div className={styles.postcardSignoff}>
             <span className={styles.postcardSignoffText}>warmly, donia</span>
-            <Image src={assets.stamp2} alt="" width={38} height={38} className={styles.postcardStamp} />
+            <Image
+              src={assets.stamp2}
+              alt=""
+              width={38}
+              height={38}
+              className={styles.postcardStamp}
+              data-theme-asset=""
+            />
           </div>
         </div>
 
@@ -39,7 +46,14 @@ export default function ContactPostcard() {
         <div className={styles.postcardRight}>
           <div className={styles.stampBox}>
             <div className={styles.stampBoxInner}>
-              <Image src={assets.stamp1} alt="" width={64} height={64} style={{ width: "100%", height: "auto" }} />
+              <Image
+                src={assets.stamp1}
+                alt=""
+                width={64}
+                height={64}
+                style={{ width: "100%", height: "auto" }}
+                data-theme-asset=""
+              />
               <span className={styles.stampBoxLabel}>CANADA · $2</span>
             </div>
           </div>

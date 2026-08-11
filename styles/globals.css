@@ -11,6 +11,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hide time-of-day flower art until React catches up with the boot script theme.
+   Prevents a flash of the SSR default (first_light) assets. */
+html:not([data-theme-ready]) [data-theme-asset] {
+  opacity: 0 !important;
+  transition: none !important;
+}
+
 html,
 body {
   min-height: 100%;

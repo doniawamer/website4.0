@@ -228,6 +228,7 @@ export default function ContactPressSurface({ children }: ContactPressSurfacePro
         height={30}
         className={styles.cursorIcon}
         priority
+        data-theme-asset=""
       />
       <span className={styles.cursorLabel}>press a flower</span>
     </div>

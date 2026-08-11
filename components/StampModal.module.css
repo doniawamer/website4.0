@@ -52,7 +52,7 @@
   -webkit-mask-size: 100% 100%;
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
-  mix-blend-mode: multiply;
+  mix-blend-mode: var(--paper-tint-blend, multiply);
   opacity: 0;
   transition: opacity 0.55s ease;
   pointer-events: none;
@@ -64,7 +64,7 @@
   z-index: 0;
   background: var(--color-accent);
   opacity: 0;
-  mix-blend-mode: multiply;
+  mix-blend-mode: var(--paper-tint-blend, multiply);
   mask-size: 100% 100%;
   -webkit-mask-size: 100% 100%;
   mask-repeat: no-repeat;

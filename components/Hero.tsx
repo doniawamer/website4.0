@@ -1,30 +1,61 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTheme } from "./SiteChrome";
 import { flowerAssets } from "@/lib/flowers";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
-  const { timeKey } = useTheme();
+  const { timeKey, themeReady } = useTheme();
   const assets = flowerAssets(timeKey);
+  const [heroReady, setHeroReady] = useState(false);
+
+  useEffect(() => {
+    setHeroReady(false);
+  }, [assets.hero]);
+
+  const showHero = themeReady && heroReady;
 
   return (
     <section className={styles.hero}>
       <Image
         src={assets.hero}
         alt="pressed flower cluster"
-        width={1400}
-        height={1400}
-        className={styles.heroFlower}
+        width={1280}
+        height={1280}
+        className={showHero ? `${styles.heroFlower} ${styles.heroFlowerReady}` : styles.heroFlower}
         sizes="(min-width: 900px) 640px, 320px"
         priority
+        data-theme-asset=""
+        onLoad={() => setHeroReady(true)}
       />
       <div className={styles.content}>
         <div className={styles.titleWrap}>
-          <Image src={assets.stamp1} alt="" width={116} height={116} className={styles.stampLeft} />
-          <Image src={assets.master} alt="" width={108} height={108} className={styles.stampRight} />
-          <Image src={assets.stamp2} alt="" width={76} height={76} className={styles.stampBottom} />
+          <Image
+            src={assets.stamp1}
+            alt=""
+            width={116}
+            height={116}
+            className={styles.stampLeft}
+            data-theme-asset=""
+          />
+          <Image
+            src={assets.master}
+            alt=""
+            width={108}
+            height={108}
+            className={styles.stampRight}
+            data-theme-asset=""
+          />
+          <Image
+            src={assets.stamp2}
+            alt=""
+            width={76}
+            height={76}
+            className={styles.stampBottom}
+            data-theme-asset=""
+          />
           <h1 className={styles.title}>donia amer</h1>
         </div>
         <div className={styles.role}>Senior Front-End Engineer</div>

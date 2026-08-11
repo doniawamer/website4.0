@@ -33,6 +33,7 @@ export default function Footer() {
                 width={15}
                 height={15}
                 className={styles.stampA}
+                data-theme-asset=""
               />
               <Image
                 src={i % 2 === 0 ? assets.stamp2 : assets.stamp1}
@@ -40,6 +41,7 @@ export default function Footer() {
                 width={10}
                 height={10}
                 className={styles.stampB}
+                data-theme-asset=""
               />
               <a
                 href={link.href}
@@ -59,7 +61,14 @@ export default function Footer() {
           onClick={cycleTheme}
           aria-label="Cycle time-of-day theme"
         >
-          <Image src={assets.favicon} alt="" width={20} height={20} className={styles.footerFavicon} />
+          <Image
+            src={assets.favicon}
+            alt=""
+            width={20}
+            height={20}
+            className={styles.footerFavicon}
+            data-theme-asset=""
+          />
         </button>
       </div>
     </footer>

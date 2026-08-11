@@ -17,6 +17,7 @@ export function AboutBackgroundFlower() {
       height={220}
       className={styles.bgFlower}
       aria-hidden="true"
+      data-theme-asset=""
     />
   );
 }
@@ -25,6 +26,7 @@ export function AboutPhoto() {
   const { timeKey } = useTheme();
   const assets = flowerAssets(timeKey);
   const [bloomed, setBloomed] = useState(false);
+  const [photoReady, setPhotoReady] = useState(false);
 
   return (
     <div
@@ -46,6 +48,7 @@ export function AboutPhoto() {
         width={124}
         height={124}
         className={styles.photoBloomStamp1}
+        data-theme-asset=""
       />
       <Image
         src={assets.stamp2}
@@ -53,6 +56,7 @@ export function AboutPhoto() {
         width={108}
         height={108}
         className={styles.photoBloomStamp2}
+        data-theme-asset=""
       />
       <Image
         src={assets.favicon}
@@ -60,10 +64,21 @@ export function AboutPhoto() {
         width={86}
         height={86}
         className={styles.photoBloomFavicon}
+        data-theme-asset=""
       />
       <div className={styles.photoFrame}>
         <div className={styles.photoInner}>
-          <Image src={NEUTRAL_ASSETS.aboutPhoto} alt="Donia" fill className={styles.photoImg} />
+          <Image
+            src={NEUTRAL_ASSETS.aboutPhoto}
+            alt="Donia"
+            fill
+            sizes="(min-width: 900px) 250px, 200px"
+            priority
+            className={
+              photoReady ? `${styles.photoImg} ${styles.photoImgReady}` : styles.photoImg
+            }
+            onLoad={() => setPhotoReady(true)}
+          />
         </div>
       </div>
     </div>

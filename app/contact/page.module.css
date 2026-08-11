@@ -65,7 +65,7 @@
   margin: 28px auto 0;
   max-width: 880px;
   transform: rotate(-1.2deg);
-  background: color-mix(in srgb, var(--color-bg) 74%, #fffdf6);
+  background: color-mix(in srgb, var(--color-bg) 74%, var(--paper-cream, #fffdf6));
   border: 1.5px solid color-mix(in srgb, var(--color-text) 42%, transparent);
   padding: 6px;
   text-align: left;
@@ -104,8 +104,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.4;
-  mix-blend-mode: multiply;
+  opacity: var(--paper-texture-opacity, 0.4);
+  mix-blend-mode: var(--blend, multiply);
+  filter: var(--paper-filter, none);
   pointer-events: none;
 }
 

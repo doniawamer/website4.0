@@ -47,7 +47,14 @@ export default function Nav() {
           onClick={cycleTheme}
           aria-label="Cycle time-of-day theme"
         >
-          <Image src={assets.favicon} alt="" width={26} height={26} className={styles.favicon} />
+          <Image
+            src={assets.favicon}
+            alt=""
+            width={26}
+            height={26}
+            className={styles.favicon}
+            data-theme-asset=""
+          />
         </button>
         <Link href="/" className={styles.wordmark}>
           donia amer
@@ -95,6 +102,7 @@ export default function Nav() {
                   width={22}
                   height={22}
                   className={styles.favicon}
+                  data-theme-asset=""
                 />
               </button>
               <Link href="/" className={styles.wordmark} onClick={() => setMenuOpen(false)}>

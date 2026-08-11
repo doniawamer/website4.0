@@ -141,8 +141,11 @@ export function buildThemeVars(timeKey: ThemeKey): Record<string, string> {
     "--acc-lg": accLg,
     "--acc-sm": accSm,
     "--blend": dark ? "normal" : "multiply",
-    "--paper-filter": dark ? "invert(0.93)" : "none",
-    "--paper-tint": dark ? "0" : "0.9",
+    "--paper-filter": dark ? "invert(0.9) brightness(0.88)" : "none",
+    "--paper-tint": dark ? "0.88" : "0.9",
+    "--paper-tint-blend": dark ? "normal" : "multiply",
+    "--paper-cream": dark ? "#2a2838" : "#fffdf6",
+    "--paper-texture-opacity": dark ? "0.28" : "0.4",
     "--btn-ink": dark ? "#211F2E" : "#FFF9EC",
     "--btn-shadow": dark
       ? "none"

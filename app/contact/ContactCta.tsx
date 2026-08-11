@@ -32,6 +32,7 @@ export default function ContactCta() {
             width={16}
             height={16}
             className={styles.ctaLeaveIcon}
+            data-theme-asset=""
           />
           <span>leave a flower</span>
         </button>

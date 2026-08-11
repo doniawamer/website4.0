@@ -4,7 +4,6 @@
 }
 
 .bgFlower {
-  display: none;
   position: absolute;
   right: -70px;
   top: 90px;
@@ -12,13 +11,19 @@
   height: auto;
   object-fit: contain;
   transform: rotate(8deg);
+  mix-blend-mode: var(--blend, multiply);
   z-index: 0;
   pointer-events: none;
 }
 
+@media (min-width: 480px) {
+  .bgFlower {
+    right: -40px;
+  }
+}
+
 @media (min-width: 900px) {
   .bgFlower {
-    display: block;
     right: 70px;
     top: 150px;
     width: 220px;
@@ -207,6 +212,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-slow, ease);
+}
+
+.photoImgReady {
+  opacity: 1;
 }
 
 .timeline {

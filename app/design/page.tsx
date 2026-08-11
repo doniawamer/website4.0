@@ -3,7 +3,7 @@ import DesignSocial from "./DesignSocial";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Design & Social",
+  title: { absolute: "social" },
 };
 
 export default function DesignPage() {

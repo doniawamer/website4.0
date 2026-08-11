@@ -1,15 +1,15 @@
 .button {
+  position: relative;
   display: inline-flex;
   flex: none;
   white-space: nowrap;
   align-items: center;
   justify-content: center;
   padding: 16px 38px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: color-mix(in srgb, var(--color-accent) 28%, var(--color-bg));
   transition: transform 0.7s ease, filter 0.7s ease;
   border-radius: var(--radius-pill);
+  overflow: hidden;
 }
 
 .button:hover,
@@ -18,7 +18,25 @@
   filter: brightness(0.97);
 }
 
+.wash {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.75s var(--ease-slow, ease);
+  pointer-events: none;
+}
+
+.washReady {
+  opacity: 1;
+}
+
 .label {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-mono), monospace;
   font-weight: 500;
   font-size: 12px;

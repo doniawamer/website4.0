@@ -11,13 +11,13 @@ export function neutralAsset(suffix: string): string {
 }
 
 export const FLOWER_SUFFIXES = {
-  heroCluster: "flower_hero_cluster.png",
-  stampShape01: "flower_stamp_shape_01.png",
-  stampShape02: "flower_stamp_shape_02.png",
-  master: "master.png",
-  favicon: "flower_icon_favicon.png",
-  wilted: "flower_404_wilted.png",
-  buttonCropped: "flower_button_cropped.png",
+  heroCluster: "flower_hero_cluster.webp",
+  stampShape01: "flower_stamp_shape_01.webp",
+  stampShape02: "flower_stamp_shape_02.webp",
+  master: "master.webp",
+  favicon: "flower_icon_favicon.webp",
+  wilted: "flower_404_wilted.webp",
+  buttonCropped: "flower_button_cropped.webp",
 } as const;
 
 export function flowerAssets(timeKey: ThemeKey) {
@@ -33,11 +33,11 @@ export function flowerAssets(timeKey: ThemeKey) {
 }
 
 export const NEUTRAL_ASSETS = {
-  postcardPaper: neutralAsset("canvas.png"),
-  paper1: neutralAsset("paper-1.png"),
-  paper2: neutralAsset("paper-2.png"),
-  paper3: neutralAsset("paper-3.png"),
-  aboutPhoto: neutralAsset("donia_photo.png"),
+  postcardPaper: neutralAsset("canvas.webp"),
+  paper1: neutralAsset("paper-1.webp"),
+  paper2: neutralAsset("paper-2.webp"),
+  paper3: neutralAsset("paper-3.webp"),
+  aboutPhoto: neutralAsset("donia_photo.webp"),
 };
 
 export type ShapeId = "shape_01" | "shape_02";
@@ -83,7 +83,7 @@ export function locationFromTimezone(timezone: string): string {
 export const INITIAL_PATTERN = /^[A-Za-z0-9]{0,2}$/;
 
 /** Newest flowers kept in storage / shown on desktop. */
-export const MAX_STORED = 200;
+export const MAX_STORED = 40;
 /** Cap rendered floor flowers on small viewports. */
 export const MAX_VISIBLE_MOBILE = 10;
 

@@ -31,8 +31,8 @@ const themeInitScript = themeInitScriptSource(JSON.stringify(buildAllThemeVars()
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "Donia Amer — Senior Front-End Engineer",
-    template: "%s | Donia Amer",
+    default: "donia amer",
+    template: "%s | donia amer",
   },
   description:
     "I'm a design oriented software engineer that focuses on building immersive and accessible digital experiences.",

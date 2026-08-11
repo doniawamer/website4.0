@@ -20,6 +20,9 @@
   --blend: multiply;
   --paper-filter: none;
   --paper-tint: 0.9;
+  --paper-tint-blend: multiply;
+  --paper-cream: #fffdf6;
+  --paper-texture-opacity: 0.4;
 
   --radius-sm: 4px;
   --radius-md: 12px;
@@ -54,7 +57,10 @@
     --btn-ink: #211f2e;
     --btn-shadow: none;
     --blend: normal;
-    --paper-filter: invert(0.93);
-    --paper-tint: 0;
+    --paper-filter: invert(0.9) brightness(0.88);
+    --paper-tint: 0.88;
+    --paper-tint-blend: normal;
+    --paper-cream: #2a2838;
+    --paper-texture-opacity: 0.28;
   }
 }

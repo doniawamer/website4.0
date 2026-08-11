@@ -4,7 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -24,6 +24,8 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 
 interface ThemeContextValue extends TimeState {
+  /** False until client theme is synced from the boot script (avoids first_light flower flash). */
+  themeReady: boolean;
   cycleTheme: () => void;
 }
 
@@ -75,20 +77,22 @@ function runThemeTransition(apply: () => void, transitioningRef: { current: bool
 }
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
-  // Same initial state on server + first client paint (avoids hydration mismatch).
-  // Boot script already painted the live palette; we sync React state after mount
-  // without a view transition so flower assets catch up quietly.
+  // Same initial state on server + first client render (avoids hydration mismatch).
+  // Boot script already painted the live palette; sync React before paint so
+  // flower <img> srcs don't briefly show DEFAULT_THEME_KEY (first_light).
   const [state, setState] = useState<TimeState>(() => toTimeState(DEFAULT_THEME_KEY));
+  const [themeReady, setThemeReady] = useState(false);
   const timeKeyRef = useRef<ThemeKey>(DEFAULT_THEME_KEY);
   const transitioningRef = useRef(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const key = resolveClientTheme();
     applyThemeVars(key);
-    if (key !== timeKeyRef.current) {
-      timeKeyRef.current = key;
-      setState(toTimeState(key));
-    }
+    timeKeyRef.current = key;
+    // useLayoutEffect updates flush before paint — no flushSync needed (and it warns here).
+    setState(toTimeState(key));
+    setThemeReady(true);
+    document.documentElement.setAttribute("data-theme-ready", "true");
   }, []);
 
   const cycleTheme = useCallback(() => {
@@ -105,7 +109,10 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
     }, transitioningRef);
   }, []);
 
-  const value = useMemo(() => ({ ...state, cycleTheme }), [state, cycleTheme]);
+  const value = useMemo(
+    () => ({ ...state, themeReady, cycleTheme }),
+    [state, themeReady, cycleTheme]
+  );
 
   return (
     <ThemeContext.Provider value={value}>
