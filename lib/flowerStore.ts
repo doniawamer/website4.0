@@ -9,7 +9,7 @@ import {
 
 const STORE_NAME = "community-canvas";
 const KEY = "flowers";
-export const MAX_PER_VISITOR = 5;
+export const MAX_PER_VISITOR = 10;
 
 declare global {
   // eslint-disable-next-line no-var
@@ -21,6 +21,11 @@ function memoryStore(): Flower[] {
     global.__pressedMemoryFlowerStore = [];
   }
   return global.__pressedMemoryFlowerStore;
+}
+
+/** UTC calendar day key, e.g. "2026-08-11". */
+function utcDayKey(iso: string = new Date().toISOString()): string {
+  return iso.slice(0, 10);
 }
 
 /**
@@ -89,9 +94,12 @@ export class FlowerLimitError extends Error {
 
 export async function addFlower(input: NewFlowerInput): Promise<Flower> {
   const current = await readAll();
+  const today = utcDayKey();
 
-  const visitorCount = current.filter((f) => f.visitorToken === input.visitorToken).length;
-  if (visitorCount >= MAX_PER_VISITOR) {
+  const visitorCountToday = current.filter(
+    (f) => f.visitorToken === input.visitorToken && utcDayKey(f.createdAt) === today
+  ).length;
+  if (visitorCountToday >= MAX_PER_VISITOR) {
     throw new FlowerLimitError();
   }
 
