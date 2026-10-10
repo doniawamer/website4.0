@@ -8,6 +8,12 @@
   cursor: auto;
 }
 
+/* showModal() focuses the dialog box itself; its rectangle shouldn't be outlined over the deckled paper. */
+.dialog:focus,
+.dialog:focus-visible {
+  outline: none;
+}
+
 .dialog::backdrop {
   background: color-mix(in srgb, var(--color-text) 34%, transparent);
   cursor: auto;

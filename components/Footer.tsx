@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useTheme } from "./SiteChrome";
 import { flowerAssets } from "@/lib/flowers";
 import { buildMailto } from "@/lib/mailto";
@@ -43,14 +44,20 @@ export default function Footer() {
                 className={styles.stampB}
                 data-theme-asset=""
               />
-              <a
-                href={link.href}
-                className={styles.socialText}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              >
-                {link.label}
-              </a>
+              {link.href.startsWith("/") ? (
+                <Link href={link.href} className={styles.socialText}>
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  href={link.href}
+                  className={styles.socialText}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                >
+                  {link.label}
+                </a>
+              )}
             </span>
           ))}
         </div>

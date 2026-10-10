@@ -43,7 +43,7 @@ export default function ReelPhone({ poster, videoSrc, label }: ReelPhoneProps) {
             poster={poster}
             loop
             playsInline
-            preload="auto"
+            preload="none"
             onLoadedData={(e) => {
               const v = e.currentTarget;
               if (v.paused && v.currentTime > 0.05) v.currentTime = 0;
