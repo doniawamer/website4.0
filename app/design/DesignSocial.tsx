@@ -53,7 +53,8 @@ export default function DesignSocial() {
           </div>
         </div>
         <div className={styles.panelMedia}>
-          {devices.map((device, i) => {
+          {devices.map((device, idx) => {
+            const i = `${active.id}-${idx}`;
             switch (device.type) {
               case "story":
                 return <StoryPhone key={i} pages={device.pages} label={`${active.name} story`} />;

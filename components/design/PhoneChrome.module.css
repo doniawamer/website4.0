@@ -21,6 +21,7 @@
   aspect-ratio: 398 / 666;
   border-radius: 8px;
   overflow: hidden;
+  background: color-mix(in srgb, var(--color-accent) 32%, var(--color-bg));
 }
 
 @media (min-width: 900px) {
@@ -35,5 +36,5 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background: #100d08;
+  background: color-mix(in srgb, var(--color-accent) 32%, var(--color-bg));
 }
