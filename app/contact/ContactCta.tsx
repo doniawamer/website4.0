@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import DownloadResumeButton from "@/components/DownloadResumeButton";
 import InkButton from "@/components/InkButton";
 import { useTheme } from "@/components/SiteChrome";
@@ -18,9 +19,9 @@ export default function ContactCta() {
     <div className={styles.ctaRow} data-deadzone="true">
       <div className={styles.ctaDesktop}>
         <InkButton href={buildMailto()}>email me</InkButton>
-        <a href="/resume" className={styles.ctaSecondary}>
+        <Link href="/resume" className={styles.ctaSecondary}>
           or see the resume
-        </a>
+        </Link>
       </div>
 
       <div className={styles.ctaMobile}>

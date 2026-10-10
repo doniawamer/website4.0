@@ -107,6 +107,7 @@ export default function CoverCard({
           muted
           loop
           playsInline
+          preload="metadata"
           controls={revealed}
           aria-label={imageAlt}
         />
